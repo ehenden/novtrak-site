@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141615">
+  <meta name="description" content="Novtrak hazırlanıyor. Fikirden parçaya, senin kontrolünde: AI destekli müzik üretim çalışma alanı. İletişim: esat@novtrak.com">
+  <title>Novtrak — Müzik üretiminin yeni akışı</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141615'/%3E%3Cpath d='M8 24V8l16 16V8' fill='none' stroke='%23f09459' stroke-width='3'/%3E%3C/svg%3E">
+  <style>
+    :root{color-scheme:dark;--bg:#141615;--ink:#f5f3ec;--muted:#a9ada5;--accent:#f09459;--line:#343733}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}a:focus-visible{outline:2px solid var(--accent);outline-offset:7px}.shell{max-width:1480px;padding:0 6vw;margin:auto}
+    header{height:104px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:13px;font-size:25px;font-weight:700;letter-spacing:-1px}.mark{width:30px;height:30px}.contact{font-size:13px;color:var(--muted)}.contact span{margin-left:17px;color:var(--accent)}
+    main{padding:78px 0 0}.eyebrow{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}.dot{height:7px;width:7px;background:var(--accent);border-radius:50%;box-shadow:0 0 12px #f0945944}.hero{display:grid;grid-template-columns:1.18fr 1fr;gap:35px;align-items:center;min-height:490px}.copy{position:relative;z-index:1}h1{font-weight:400;font-size:clamp(54px,5.8vw,87px);letter-spacing:-5px;line-height:1.04;margin:28px 0}.accent{color:var(--accent)}.intro{max-width:440px;font-size:17px;line-height:1.75;color:var(--muted)}.cta{display:inline-flex;align-items:center;gap:50px;margin-top:22px;padding:18px 22px;border:1px solid var(--accent);color:var(--accent);font-size:13px;border-radius:3px;transition:background .2s,color .2s}.cta:hover{background:var(--accent);color:var(--bg)}.cta span{font-size:19px}.subnote{font-size:11px;color:var(--muted);margin-top:16px}
+    .signal{position:relative;height:400px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}.signal:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,#f094590c,transparent 68%)}.signal-top,.signal-bottom{display:flex;justify-content:space-between;color:var(--muted);font-family:monospace;font-size:10px;letter-spacing:1.5px}.signal-top{padding:0 10px 25px}.signal-bottom{padding:25px 10px 0}.wave{display:flex;align-items:center;justify-content:center;gap:5px;height:235px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:repeating-linear-gradient(90deg,transparent 0,transparent 49px,#ffffff04 50px),repeating-linear-gradient(0deg,transparent 0,transparent 46px,#ffffff04 47px)}.wave i{display:block;width:6px;height:var(--h);background:var(--accent);border-radius:5px;opacity:var(--o,.8);transform-origin:center;animation:breathe 6s ease-in-out infinite;animation-delay:var(--d,0s)}.signal-label{position:absolute;right:10px;top:7px;font-size:10px;color:var(--accent)}@keyframes breathe{50%{transform:scaleY(.76);opacity:.55}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wave i{animation:none}.cta{transition:none}}
+    .details{display:grid;grid-template-columns:1fr 1fr 1fr;margin-top:65px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.detail{padding:32px 28px 34px 0}.detail+.detail{border-left:1px solid var(--line);padding-left:28px}.number{color:var(--accent);font-family:monospace;font-size:11px}.detail h2{font-size:18px;font-weight:400;letter-spacing:-.4px;margin:18px 0 12px}.detail p{font-size:13px;line-height:1.8;max-width:320px;margin:0;color:var(--muted)}.status{display:flex;align-items:center;justify-content:space-between;padding:40px 0;gap:24px}.status p{max-width:550px;line-height:1.7;font-size:13px;color:var(--muted);margin:0}.status strong{font-weight:400;color:var(--ink)}.stage{font-family:monospace;font-size:10px;letter-spacing:1px;color:var(--accent);white-space:nowrap}footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 28px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}footer a:hover{color:var(--accent)}
+    @media(min-width:1700px){.hero{min-height:570px}}@media(max-width:850px){.shell{padding:0 7vw}header{height:80px}.hero{grid-template-columns:1fr;gap:8px}main{padding-top:48px}h1{font-size:64px;letter-spacing:-3px}.intro{max-width:470px}.signal{height:280px;margin-top:22px}.wave{height:180px}.wave i{height:calc(var(--h) * .7)}.details{margin-top:28px}.detail{padding:26px 16px 26px 0}.detail+.detail{padding-left:16px}.detail h2{font-size:16px}.contact{font-size:12px}.contact span{margin-left:7px}}@media(max-width:540px){h1{font-size:53px;letter-spacing:-2.7px}.brand{font-size:22px}.contact{font-size:11px}.contact span{display:none}.intro{font-size:15px}.details{grid-template-columns:1fr}.detail,.detail+.detail{padding:25px 0;border-left:0}.detail+.detail{border-top:1px solid var(--line)}.detail p{max-width:100%}.status{align-items:flex-start;flex-direction:column;padding:30px 0;gap:20px}footer{font-size:10px}.wave{gap:4px}.wave i{width:5px}.eyebrow{font-size:10px;letter-spacing:1.5px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <a class="brand" href="#" aria-label="Novtrak ana sayfa"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 25V7l20 18V7" fill="none" stroke="#f09459" stroke-width="2.6"/></svg>novtrak</a>
+      <a class="contact" href="mailto:esat@novtrak.com">esat@novtrak.com <span aria-hidden="true">↗</span></a>
+    </header>
+    <main>
+      <div class="hero">
+        <div class="copy">
+          <div class="eyebrow"><span class="dot" aria-hidden="true"></span>Yapım aşamasında · Yakında</div>
+          <h1>Fikirden parçaya.<br><span class="accent">Senin akışında.</span></h1>
+          <p class="intro">Müzik üretimi için yeni bir çalışma alanı hazırlıyoruz. Fikirlerini, kayıtlarını ve üretim sürecini AI desteğiyle bir araya getiren Novtrak. Yaratıcı kararlar sende.</p>
+          <a class="cta" href="mailto:esat@novtrak.com">İletişime geç <span aria-hidden="true">↗</span></a>
+          <p class="subnote">Bir fikir, soru ya da iş birliği için: esat@novtrak.com</p>
+        </div>
+        <div class="signal" aria-hidden="true">
+          <div class="signal-top"><span>NOVTRAK / SIGNAL 001</span><span>IDEA → TRACK</span></div>
+          <div class="wave">
+            <i style="--h:12px;--o:.35"></i><i style="--h:22px;--o:.4"></i><i style="--h:34px;--o:.4"></i><i style="--h:18px;--o:.45"></i><i style="--h:47px;--o:.5"></i><i style="--h:69px;--o:.55"></i><i style="--h:41px;--o:.5"></i><i style="--h:93px;--d:-1s"></i><i style="--h:120px;--d:-1s"></i><i style="--h:84px;--d:-1s"></i><i style="--h:146px;--d:-1s"></i><i style="--h:175px;--d:-2s"></i><i style="--h:132px;--d:-2s"></i><i style="--h:199px;--d:-2s"></i><i style="--h:225px;--d:-2s"></i><i style="--h:186px;--d:-2s"></i><i style="--h:154px;--d:-3s"></i><i style="--h:203px;--d:-3s"></i><i style="--h:174px;--d:-3s"></i><i style="--h:123px;--d:-3s"></i><i style="--h:87px;--d:-3s"></i><i style="--h:137px;--d:-4s"></i><i style="--h:167px;--d:-4s"></i><i style="--h:116px;--d:-4s"></i><i style="--h:79px;--d:-4s"></i><i style="--h:104px;--d:-4s"></i><i style="--h:65px;--o:.6"></i><i style="--h:43px;--o:.5"></i><i style="--h:73px;--o:.55"></i><i style="--h:54px;--o:.5"></i><i style="--h:31px;--o:.45"></i><i style="--h:46px;--o:.4"></i><i style="--h:20px;--o:.35"></i><i style="--h:12px;--o:.3"></i>
+          </div>
+          <div class="signal-bottom"><span>HUMAN INTENT / AI ASSIST</span><span>IN DEVELOPMENT</span></div>
+        </div>
+      </div>
+      <section class="details" aria-label="Novtrak için geliştirdiğimiz yaklaşım">
+        <div class="detail"><span class="number">01 / FİKİR</span><h2>Bir niyetle başla.</h2><p>Bir söz, bir kayıt, bir his. Üretim akışını müzikal fikrinin etrafında kur.</p></div>
+        <div class="detail"><span class="number">02 / ÜRETİM</span><h2>Akışını bir araya getir.</h2><p>AI desteği ve müzik araçların arasında daha sade bir üretim süreci.</p></div>
+        <div class="detail"><span class="number">03 / KONTROL</span><h2>Son söz kulağında.</h2><p>Dinle, değerlendir, yön ver. Parçanın kimliği ve yaratıcı kararlar sende kalsın.</p></div>
+      </section>
+      <div class="status"><p><strong>Novtrak hazırlanıyor.</strong> Cadence Agent, yoluna Novtrak adıyla devam ediyor. Ürün arayüzü ve erişim bilgileri hazır olduğunda burada olacak.</p><span class="stage">● DEVELOPMENT IN PROGRESS</span></div>
+    </main>
+    <footer><span>© 2026 Novtrak</span><a href="mailto:esat@novtrak.com">esat@novtrak.com ↗</a></footer>
+  </div>
+</body>
+</html>
