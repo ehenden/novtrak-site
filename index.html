@@ -9,7 +9,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111713'/%3E%3Cpath d='M8 24V8l16 16V8' fill='none' stroke='%23b4c2a0' stroke-width='3'/%3E%3C/svg%3E">
   <style>
     :root{color-scheme:dark;--bg:#111713;--ink:#eef0e7;--muted:#a0aa9b;--accent:#b4c2a0;--line:#354135}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:6px}.shell{max-width:1480px;padding:0 6vw;margin:auto}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:6px}.skip-link{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}.skip-link:focus{position:fixed;top:12px;left:12px;width:auto;height:auto;margin:0;padding:10px 14px;overflow:visible;clip:auto;background:var(--bg);color:var(--ink);outline:2px solid var(--accent);outline-offset:2px;z-index:2}.shell{max-width:1480px;padding:0 6vw;margin:auto}
     header{height:104px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:13px;font-size:26px;font-weight:700;letter-spacing:-1px}.mark{width:30px;height:30px}.edition{font-family:monospace;font-size:12px;letter-spacing:2px;color:var(--muted)}
     main{padding-top:74px}.hero{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:48px;min-height:480px}.eyebrow{font-size:12px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin:0 0 28px}h1{font-size:clamp(56px,6.8vw,98px);line-height:1.02;font-weight:400;letter-spacing:-5px;margin:0 0 30px}.accent{color:var(--accent)}.intro{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:390px}
     .signal{position:relative;display:flex;flex-direction:column;justify-content:center;height:370px;isolation:isolate}.signal:before{content:"";position:absolute;inset:-30px;background:radial-gradient(ellipse,var(--glow,#b4c2a00d),transparent 68%);z-index:-1;transition:background 1s}.signal-top,.signal-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font:12px monospace;letter-spacing:1px}.signal-top{padding:0 0 25px}.signal-bottom{padding-top:24px}.signal-name{color:var(--accent)}.wave{display:flex;align-items:center;justify-content:center;gap:5px;height:235px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:repeating-linear-gradient(90deg,transparent 0,transparent 49px,#b4c2a006 50px),repeating-linear-gradient(0deg,transparent 0,transparent 46px,#b4c2a006 47px)}.wave i{display:block;width:6px;max-width:1.5%;height:var(--h);background:var(--accent);border-radius:5px;opacity:var(--o,.8);transform-origin:center;animation:breathe 6s ease-in-out infinite;animation-delay:var(--d,0s)}@keyframes breathe{50%{transform:scaleY(.76);opacity:.5}}.playing .wave i{animation-name:resonate;animation-duration:2.7s}.playing .signal{--glow:#b4c2a01d}@keyframes resonate{0%,100%{transform:scaleY(.85)}50%{transform:scaleY(1.04);opacity:1}}
@@ -21,12 +21,13 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#icerik">İçeriğe geç</a>
   <div class="shell">
     <header>
       <a class="brand" href="#" aria-label="Novtrak ana sayfa"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 25V7l20 18V7" fill="none" stroke="#b4c2a0" stroke-width="2.6"/></svg>novtrak</a>
       <span class="edition">SES × TEKNOLOJİ</span>
     </header>
-    <main>
+    <main id="icerik">
       <div class="hero">
         <div class="copy">
           <p class="eyebrow">Yeni bir üretim alanı</p>
