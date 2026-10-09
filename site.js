@@ -21,6 +21,7 @@ function render({fields = false} = {}) {
   $('#prepare-revision').disabled = !work.selected;
   $('#brief-result').hidden = !work.brief;
   $('#brief-text').textContent = work.brief || '';
+  $('#download-brief').disabled = !work.brief;
 }
 document.querySelectorAll('[data-scenario]').forEach(button => button.addEventListener('click', () => {
   state = update(state, {type: 'scenario', id: button.dataset.scenario});
@@ -48,6 +49,15 @@ $('#copy-brief').addEventListener('click', async () => {
   if (!current().brief) return;
   try { await navigator.clipboard.writeText(current().brief); status('Brief kopyalandı. Saklayabilir veya üretim adımında kullanabilirsin.'); }
   catch { status('Kopyalama izni yok. Brief metnini seçip elle kopyalayabilirsin.'); }
+});
+$('#download-brief').addEventListener('click', () => {
+  const brief = current().brief;
+  if (!brief) return;
+  const url = URL.createObjectURL(new Blob([brief], {type: 'text/plain;charset=utf-8'}));
+  const link = document.createElement('a');
+  link.href = url; link.download = 'novtrak-ornek-brief.txt'; link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 0);
+  status('Brief metin dosyası olarak indirildi. Hiçbir veri gönderilmedi.');
 });
 $('#reset').addEventListener('click', () => { stopAudio(); state = initialState(); render({fields:true}); status('Örnek başa alındı. Gerçek projen üzerinde bir işlem yapılmadı.'); });
 
