@@ -1,112 +1,39 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-release="novtrak-20261010-workshop">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#111713">
-  <meta name="description" content="Novtrak, bağımsız müzisyenler için yerel öncelikli, erken aşama yapay zekâ müzik üretim asistanı.">
-  <title>Novtrak — Sesin bir sonraki hâli</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111713'/%3E%3Cpath d='M8 24V8l16 16V8' fill='none' stroke='%23b4c2a0' stroke-width='3'/%3E%3C/svg%3E">
-  <style>
-    :root{color-scheme:dark;--bg:#111713;--ink:#eef0e7;--muted:#a0aa9b;--accent:#b4c2a0;--line:#354135}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:6px}.skip-link{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}.skip-link:focus{position:fixed;top:12px;left:12px;width:auto;height:auto;margin:0;padding:10px 14px;overflow:visible;clip:auto;background:var(--bg);color:var(--ink);outline:2px solid var(--accent);outline-offset:2px;z-index:2}.shell{max-width:1480px;padding:0 6vw;margin:auto}
-    header{height:104px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:13px;font-size:26px;font-weight:700;letter-spacing:-1px}.mark{width:30px;height:30px}.edition{font-family:monospace;font-size:12px;letter-spacing:2px;color:var(--muted)}
-    main{padding-top:74px}.hero{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:48px;min-height:480px}.eyebrow{font-size:12px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin:0 0 28px}h1{font-size:clamp(56px,6.8vw,98px);line-height:1.02;font-weight:400;letter-spacing:-5px;margin:0 0 30px}.accent{color:var(--accent)}.intro{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:390px}
-    .signal{position:relative;display:flex;flex-direction:column;justify-content:center;height:370px;isolation:isolate}.signal:before{content:"";position:absolute;inset:-30px;background:radial-gradient(ellipse,var(--glow,#b4c2a00d),transparent 68%);z-index:-1;transition:background 1s}.signal-top,.signal-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font:12px monospace;letter-spacing:1px}.signal-top{padding:0 0 25px}.signal-bottom{padding-top:24px}.signal-name{color:var(--accent)}.wave{display:flex;align-items:center;justify-content:center;gap:5px;height:235px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:repeating-linear-gradient(90deg,transparent 0,transparent 49px,#b4c2a006 50px),repeating-linear-gradient(0deg,transparent 0,transparent 46px,#b4c2a006 47px)}.wave i{display:block;width:6px;max-width:1.5%;height:var(--h);background:var(--accent);border-radius:5px;opacity:var(--o,.8);transform-origin:center;animation:breathe 6s ease-in-out infinite;animation-delay:var(--d,0s)}@keyframes breathe{50%{transform:scaleY(.76);opacity:.5}}.playing .wave i{animation-name:resonate;animation-duration:2.7s}.playing .signal{--glow:#b4c2a01d}@keyframes resonate{0%,100%{transform:scaleY(.85)}50%{transform:scaleY(1.04);opacity:1}}
-    .sound{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line);border-radius:50px;color:var(--accent);background:transparent;padding:11px 16px;font-size:14px;cursor:pointer;transition:background .2s,border-color .2s}.sound:hover,.sound[aria-pressed=true]{background:#b4c2a012;border-color:var(--accent)}.sound-icon{display:flex;align-items:center;gap:3px;height:16px}.sound-icon i{width:2px;background:currentColor;height:8px}.sound-icon i:nth-child(2){height:15px}.sound-icon i:nth-child(3){height:11px}.sound-icon i:nth-child(4){height:5px}
-    .studio-line{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-top:50px;padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}.studio-line p{margin:0}.track{display:flex;align-items:center;gap:7px;flex:1;max-width:330px}.track span{height:3px;background:var(--accent);opacity:.18;border-radius:10px}.track span:nth-child(1){width:27%}.track span:nth-child(2){width:12%;opacity:.5}.track span:nth-child(3){width:39%;opacity:.3}.track span:nth-child(4){width:22%;opacity:.7}.story{padding:76px 0;border-top:1px solid var(--line)}.section-head{display:grid;grid-template-columns:.75fr 1.25fr;gap:30px;margin-bottom:34px}.section-head h2{font-size:clamp(30px,4vw,52px);font-weight:400;letter-spacing:-2px;line-height:1.05;margin:0}.section-head p{margin:0;max-width:620px;color:var(--muted);font-size:17px;line-height:1.65}.steps,.layers{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}.steps{grid-template-columns:repeat(3,1fr)}.card,.layer{background:var(--bg);padding:28px}.card small{font-family:monospace;color:var(--accent);letter-spacing:1px}.card h3,.layer h3{font-size:19px;font-weight:400;margin:46px 0 10px}.card p,.layer p{color:var(--muted);line-height:1.65;margin:0}.layer{display:grid;grid-template-columns:185px 1fr;gap:28px;padding:25px 28px}.layer h3{margin:0}.layer strong{color:var(--ink);font-weight:500}.note{color:var(--muted);font-size:14px;line-height:1.6;margin:22px 0 0}.future{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}.future article{background:var(--bg);padding:28px}.future h3{font-size:18px;font-weight:400;margin:0 0 12px}.future p{color:var(--muted);margin:0;line-height:1.6}footer{border-top:1px solid var(--line);padding:25px 0 28px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:20px}footer a{color:var(--muted);text-decoration:underline;text-underline-offset:4px}
-    @media(min-width:1700px){.hero{min-height:570px}}@media(max-width:850px){.shell{padding:0 7vw}header{height:80px}main{padding-top:50px}.hero{grid-template-columns:1fr;gap:40px;min-height:0}h1{font-size:76px;letter-spacing:-4px}.signal{height:310px}.wave{height:225px}.signal-top{padding-bottom:18px}.signal-bottom{padding-top:18px}.studio-line{margin-top:42px}.story{padding:55px 0}.section-head,.steps,.future{grid-template-columns:1fr}.section-head{gap:16px}.layer{grid-template-columns:1fr;gap:10px}}
-    @media(max-width:540px){header{height:74px}.brand{font-size:24px}.edition{font-size:12px;letter-spacing:1px}.mark{width:26px;height:26px}main{padding-top:43px}.eyebrow{font-size:12px;letter-spacing:1px;margin-bottom:24px}h1{font-size:clamp(48px,13vw,67px);letter-spacing:-2.8px;margin-bottom:25px}.intro{font-size:16px}.hero{gap:30px}.signal{height:285px}.wave{gap:4px;height:190px}.wave i{width:5px;height:calc(var(--h) * .74)}.signal-top,.signal-bottom{font-size:12px;letter-spacing:.3px}.signal-bottom{align-items:center}.sound{padding:10px 13px}.studio-line{margin-top:28px;padding:26px 0;gap:20px}.track{max-width:80px}.contact h2{font-size:27px}.contact a{font-size:17px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wave i,.playing .wave i{animation:none}a,button,.signal:before{transition:none}}
-  </style>
-</head>
-<body>
-  <a class="skip-link" href="#icerik">İçeriğe geç</a>
-  <div class="shell">
-    <header>
-      <a class="brand" href="#" aria-label="Novtrak ana sayfa"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 25V7l20 18V7" fill="none" stroke="#b4c2a0" stroke-width="2.6"/></svg>novtrak</a>
-      <span class="edition">SES × TEKNOLOJİ</span>
-    </header>
-    <main id="icerik">
-      <div class="hero">
-        <div class="copy">
-          <p class="eyebrow">Erken aşama · yerel öncelikli · insan onayı gerekli</p>
-          <h1>Sesin<br><span class="accent">bir sonraki<br>hâli.</span></h1>
-          <p class="intro">Bağımsız müzisyenler için yerel öncelikli yapay zekâ asistanı.</p>
-        </div>
-        <div class="signal">
-          <div class="signal-top" aria-hidden="true"><span class="signal-name">NOVTRAK / SIGNAL</span><span>110 Hz</span></div>
-          <div class="wave" aria-hidden="true">
-            <i style="--h:12px;--o:.35"></i><i style="--h:22px;--o:.4"></i><i style="--h:34px;--o:.4"></i><i style="--h:18px;--o:.45"></i><i style="--h:47px;--o:.5"></i><i style="--h:69px;--o:.55"></i><i style="--h:41px;--o:.5"></i><i style="--h:93px;--d:-1s"></i><i style="--h:120px;--d:-1s"></i><i style="--h:84px;--d:-1s"></i><i style="--h:146px;--d:-1s"></i><i style="--h:175px;--d:-2s"></i><i style="--h:132px;--d:-2s"></i><i style="--h:199px;--d:-2s"></i><i style="--h:225px;--d:-2s"></i><i style="--h:186px;--d:-2s"></i><i style="--h:154px;--d:-3s"></i><i style="--h:203px;--d:-3s"></i><i style="--h:174px;--d:-3s"></i><i style="--h:123px;--d:-3s"></i><i style="--h:87px;--d:-3s"></i><i style="--h:137px;--d:-4s"></i><i style="--h:167px;--d:-4s"></i><i style="--h:116px;--d:-4s"></i><i style="--h:79px;--d:-4s"></i><i style="--h:104px;--d:-4s"></i><i style="--h:65px;--o:.6"></i><i style="--h:43px;--o:.5"></i><i style="--h:73px;--o:.55"></i><i style="--h:54px;--o:.5"></i><i style="--h:31px;--o:.45"></i><i style="--h:46px;--o:.4"></i><i style="--h:20px;--o:.35"></i><i style="--h:12px;--o:.3"></i>
-          </div>
-          <div class="signal-bottom"><span>Frekansı hisset.</span><button class="sound" type="button" aria-pressed="false"><span class="sound-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sound-label">Sesi aç</span></button></div>
-        </div>
-      </div>
-      <div class="studio-line"><p>Bağımsız müzisyenler için, erken aşama bir üretim asistanı.</p><div class="track" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div>
-      <section class="story" aria-labelledby="yolculuk"><div class="section-head"><h2 id="yolculuk">Fikirden<br><span class="accent">dinlemeye.</span></h2><p>Novtrak, şarkının yönünü senin belirlediğin bir yaratıcı yolculuk için tasarlanıyor. Sistem planı görünür kılar; kaynaklar, kararlar ve son söz müzisyende kalır.</p></div><div class="steps"><article class="card"><small>01 / NİYET</small><h3>Ne aradığını anlat.</h3><p>Akış, düzen, enerji ya da mevcut malzemeyle ilgili hedefini tanımla. Belirsizlikler saklanmaz; birlikte netleştirilir.</p></article><article class="card"><small>02 / PLAN</small><h3>Öneriyi gör, seçimi yap.</h3><p>Üretici ve LLM bir çalışma planı önerir. Kapsamını ve etkisini değerlendirir; uygulanacak yönü sen belirlersin.</p></article><article class="card"><small>03 / DOĞRULA</small><h3>Duy, incele, karar ver.</h3><p>Sonuçlar geri okunur ve doğrulanır. Müzikal karar için insan dinlemesi ve onayı her zaman gereklidir.</p></article></div></section>
-      <section class="story" aria-labelledby="mimari"><div class="section-head"><h2 id="mimari">Katmanlar<br><span class="accent">açıkta.</span></h2><p>Tek düğmeli bir sihir değil: niyet, yürütme ve değerlendirme birbirinden ayrılan şeffaf bir üretim mimarisi.</p></div><div class="layers"><article class="layer"><h3>Üretici + LLM</h3><p><strong>Planı seçer.</strong> Niyeti yorumlar, seçenekleri ortaya koyar ve çalışma planını kurar; keyfi DAW durumunu doğrudan değiştirmez.</p></article><article class="layer"><h3>Semantic Production MCP</h3><p><strong>Niyeti yönlendirir.</strong> Anlaşılabilir üretim isteklerini, uygun ve sınırlı iş akışlarına taşır.</p></article><article class="layer"><h3>Deterministik çekirdek</h3><p><strong>İzini korur.</strong> Varlıkları, proje durumunu, referansları, doğrulamayı, geri okumayı ve kalıcılığı kontrollü biçimde ele alır.</p></article><article class="layer"><h3>Deneysel DAW bağdaştırıcıları</h3><p><strong>Sınırlı işleri uygular.</strong> Ableton Live ve REAPER iş akışları deneyseldir; sonuçlar müzisyen tarafından dinlenerek değerlendirilir.</p></article></div><p class="note">Novtrak müzikal mükemmellik veya prodüksiyon hazırlığı iddia etmez. Amaç, karar vermek için daha anlaşılır bir çalışma alanı oluşturmaktır.</p></section>
-      <section class="story" aria-labelledby="ufuk"><div class="section-head"><h2 id="ufuk">Kontrol sende,<br><span class="accent">yol açık.</span></h2><p>Bugün hedef, yerel öncelikli ve dikkatli bir üretim pratiği. Süreklilik ve yeni bağlantılar ise ancak hazır olduğunda anlamlıdır.</p></div><div class="future"><article><h3>Şimdi</h3><p>Müzisyenin niyeti, kaynakları ve dinleme kararı merkezdedir. Sınırlar görünür tutulur; otomasyon kararın yerine geçmez.</p></article><article><h3>Sonra</h3><p>Production Claude entegrasyonu ile cihazlar ve platformlar arası süreklilik planlanıyor; bunlar henüz sunulmuş özellikler değildir.</p></article></div></section>
-    </main>
-    <footer><span>© 2026 Novtrak · Çok yakında</span><a href="mailto:esat@novtrak.com">esat@novtrak.com</a></footer>
-  </div>
-  <script>
-    const soundButton = document.querySelector('.sound');
-    const soundLabel = document.querySelector('.sound-label');
-    let soundContext = null;
-    let masterGain = null;
-    let soundPending = false;
-    function stopSound() {
-      const previousContext = soundContext;
-      if (!previousContext) return;
-      masterGain.gain.setTargetAtTime(0, previousContext.currentTime, 0.06);
-      soundContext = null;
-      masterGain = null;
-      soundButton.setAttribute('aria-pressed', 'false');
-      soundLabel.textContent = 'Sesi aç';
-      document.body.classList.remove('playing');
-      setTimeout(() => previousContext.close().catch(() => {}), 350);
-    }
-    soundButton.addEventListener('click', async () => {
-      if (soundPending) return;
-      if (soundContext) { stopSound(); return; }
-      soundPending = true;
-      try {
-        const AudioContextType = window.AudioContext || window.webkitAudioContext;
-        const context = new AudioContextType();
-        soundContext = context;
-        masterGain = context.createGain();
-        masterGain.gain.value = 0;
-        masterGain.connect(context.destination);
-        const filter = context.createBiquadFilter();
-        filter.type = 'lowpass';
-        filter.frequency.value = 560;
-        filter.Q.value = 0.5;
-        filter.connect(masterGain);
-        [110, 164.81, 220].forEach((frequency, index) => {
-          const oscillator = context.createOscillator();
-          const voiceGain = context.createGain();
-          oscillator.type = index === 0 ? 'sine' : 'triangle';
-          oscillator.frequency.value = frequency;
-          oscillator.detune.value = index === 1 ? -3 : 0;
-          voiceGain.gain.value = index === 0 ? 0.5 : 0.15;
-          oscillator.connect(voiceGain);
-          voiceGain.connect(filter);
-          oscillator.start();
-        });
-        await context.resume();
-        if (document.hidden || soundContext !== context) { stopSound(); return; }
-        masterGain.gain.setTargetAtTime(0.065, context.currentTime, 0.45);
-        soundButton.setAttribute('aria-pressed', 'true');
-        soundLabel.textContent = 'Sesi kapat';
-        document.body.classList.add('playing');
-      } catch {
-        if (soundContext) { soundContext.close().catch(() => {}); soundContext = null; }
-        masterGain = null;
-        soundLabel.textContent = 'Ses kullanılamıyor';
-      } finally { soundPending = false; }
-    });
-    document.addEventListener('visibilitychange', () => { if (document.hidden) stopSound(); });
-    window.addEventListener('pagehide', stopSound);
-  </script>
-</body>
-</html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111713">
+<meta name="description" content="Novtrak: bağımsız müzisyenler için yerel öncelikli müzik üretim asistanı. Niyetini anlat, yönleri karşılaştır, iyi olanı koruyarak ilerle. Erken aşama prototip.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Novtrak — Sesin bir sonraki hâli</title><link rel="icon" href="mark.svg" type="image/svg+xml"><link rel="stylesheet" href="site.css">
+</head><body>
+<a class="skip-link" href="#icerik">İçeriğe geç</a><div class="shell">
+<header><a class="brand" href="#icerik" aria-label="Novtrak ana sayfa"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 25V7l20 18V7"/></svg>novtrak</a><nav aria-label="Sayfa gezinmesi"><a href="#atolye">Akışı dene ↗</a><a href="#yaklasim">Yaklaşım</a></nav><span class="edition">SES × TEKNOLOJİ</span></header>
+<main id="icerik" tabindex="-1">
+<section class="hero" aria-labelledby="hero-title">
+<div class="hero-copy"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>BAĞIMSIZ MÜZİSYENLER İÇİN</p><h1 id="hero-title">Sesin<br>bir sonraki<br><em>hâli.</em></h1><p class="intro">Fikrini anlat. Yönleri karşılaştır.<br>İyi olanı koruyarak ilerle.</p><p class="hero-description">Novtrak, yaratıcı niyetini bir sonraki üretim adımına taşıyan yerel öncelikli yapay zekâ müzik asistanı. Son sözü kulağın söyler.</p><div class="hero-actions"><a class="button primary" href="#atolye">Akışı kendin dene ↗</a><span class="early">Erken aşama prototip<br>İnsan dinlemesi ve onayıyla</span></div></div>
+<div class="signal-panel"><div class="signal-caption"><span>N / SIGNAL STUDY</span><span aria-hidden="true">110 HZ</span></div><div class="signal-art" aria-hidden="true"><div class="orb"></div><div class="axis axis-one"></div><div class="axis axis-two"></div><div class="wave" id="hero-wave"></div><span class="art-label">bir fikir.<br>bir yön.<br>bir sonraki adım.</span><span class="art-corner">N—</span></div><div class="signal-bottom"><div><p>Önce bir frekans.</p><small>Tarayıcı tonu · şarkı örneği değil</small></div><button class="sound" id="ambient" type="button" aria-pressed="false"><span aria-hidden="true">◖</span><span id="ambient-label">Sesi aç</span></button></div><p class="sound-status" id="sound-status" role="status" aria-live="polite">Ses kendiliğinden başlamaz.</p></div>
+</section>
+<div class="bridge"><p>Bir şey eklemek her zaman ilerlemek değildir.</p><span>BAZEN BİR BOŞLUK YETER.</span></div>
+<section id="atolye" class="workshop section" aria-labelledby="workshop-title">
+<div class="section-heading"><div><p class="eyebrow">ÖRNEK ATÖLYE</p><h2 id="workshop-title">Dinle. Seç.<br><em>Bir şeyi değiştir.</em></h2></div><p>Bir fikrin karar haline gelişini dene.<br>Aynı motif, iki yorum, tek bir sonraki adım.</p></div>
+<div class="demo-notice"><span class="notice-mark" aria-hidden="true">↳</span><p><b>Etkileşimli akış örneği.</b> Gerçek şarkı üretmez veya DAW’ına bağlanmaz. Sesler tarayıcıda çalınan, önceden yazılmış kısa motiflerdir. Metnin hiçbir sağlayıcıya gönderilmez.</p></div>
+<noscript><p class="demo-notice">Örnek atölye JavaScript gerektirir. Novtrak’ın yaklaşımını aşağıda okuyabilir, iletişim bağlantısını kullanabilirsin.</p></noscript>
+<div class="desk" id="demo-desk" hidden>
+<div class="intent-panel"><div class="panel-label">NİYET <span aria-hidden="true">↗</span></div><h3>Nereden başlayalım?</h3>
+<div class="scenario-list" role="group" aria-label="Örnek çalışma başlangıcı"><button type="button" data-scenario="idea" aria-pressed="true">Bir fikrim var →</button><button type="button" data-scenario="keep" aria-pressed="false">İyi bir performansım var →</button><button type="button" data-scenario="revise" aria-pressed="false">Tek bir şey değişsin →</button></div>
+<p id="scenario-description" class="muted">Bir yön ararken aynı fikrin farklı söyleyişlerini karşılaştır.</p><label for="intent">Bu turda ne arıyorsun?</label><textarea id="intent" rows="3" maxlength="500">Melodi aynı kalsın; cümlelerin arasına biraz daha alan açılsın.</textarea><p class="field-help">Bu alan ses üretmez. Yazdığın niyet brief’ine eklenir.</p><div class="protect"><span>DEĞİŞMESİN</span><p>Melodi · sözler · kaynak performans</p><small>Burada bir kaynak kayıt yüklenmez veya değiştirilmez.</small></div></div>
+<div class="listening-panel"><div class="panel-label">AYNI MOTİF, İKİ YORUM <span class="mono">96 BPM / D MINOR</span></div>
+<div class="candidate-grid">
+<article class="candidate" id="candidate-a"><div class="candidate-heading"><span>A</span><b id="selected-a" hidden>Seçimin</b></div><h3>Alan bırak.</h3><p>Notaların arasında daha uzun nefesler. Fikir biraz daha geride, boşluklar önde.</p><div class="mini-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="candidate-actions"><button class="listen" type="button" data-listen="a" aria-pressed="false">A’yı dinle ▶</button><button class="choose" type="button" data-choose="a" aria-pressed="false">A yönünü seç</button></div></article>
+<article class="candidate" id="candidate-b"><div class="candidate-heading"><span>B</span><b id="selected-b" hidden>Seçimin</b></div><h3>Vurguyu değiştir.</h3><p>Aynı notalar, farklı yerleşim. Son cümlenin vurgusu biraz daha belirgin.</p><div class="mini-wave alternate" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="candidate-actions"><button class="listen" type="button" data-listen="b" aria-pressed="false">B’yi dinle ▶</button><button class="choose" type="button" data-choose="b" aria-pressed="false">B yönünü seç</button></div></article>
+</div><p class="audio-note">İki örnek de aynı notaları kullanır. Yeni birini dinlediğinde önceki durur. Bu karşılaştırma vokal kimliği veya gerçek ürün çıktısı göstermez.</p>
+<div class="decision-line"><span id="selection-message">Önce bir yön seç. Kararını verirken acele etme.</span><button type="button" id="reset" class="text-button">Örneği başa al ↺</button></div>
+<form id="revision-form" class="revision-form"><div><p class="panel-label">BİR SONRAKİ TUR</p><h3>Her şeyi baştan arama.</h3><p class="muted">Önceki seçimi koru; yalnızca neyin değişeceğini söyle.</p></div><label for="change">Yalnız ne değişsin?</label><input id="change" maxlength="500" placeholder="Örn. yalnız son cümlenin vurgusunu hafiflet." required disabled><button class="button primary" id="prepare-revision" type="submit" disabled>Bu seçimle brief hazırla ↗</button><p class="field-help">Yeni ses üretilmez. Seçim ve tek değişiklik bir taslakta birleşir.</p></form>
+<section id="brief-result" class="brief-result" aria-labelledby="result-title" hidden><div class="result-heading"><div><p class="panel-label">SEÇİMİN KORUNUYOR</p><h3 id="result-title" tabindex="-1">Sonraki adımın net.</h3></div><span aria-hidden="true">↗</span></div><pre id="brief-text"></pre><div class="brief-actions"><button class="button secondary" id="copy-brief" type="button">Brief’i kopyala</button><p>Kopyala ve sakla. Bu örnekte veriler<br>sayfa yenilendiğinde sıfırlanır.</p></div></section><p id="demo-status" class="demo-status" role="status" aria-live="polite" aria-atomic="true"></p></div></div>
+</section>
+<section id="yaklasim" class="approach section" aria-labelledby="approach-title"><div class="approach-copy"><p class="eyebrow">YAKLAŞIMIMIZ</p><h2 id="approach-title">Performansın<br><em>senin kalsın.</em></h2><p class="large-copy">Bir take’i beğendiğinde, sonraki adım onun kimliğini silmemeli.</p><p class="muted">Novtrak’ı, iyi bir seçimin üzerine dikkatle ilerlemek için geliştiriyoruz. Daha çok katman, daha yüksek ses veya her şeyi yeniden üretmek bir varsayım değil; ihtiyaçsa bir tercih.</p></div><div class="principles"><article><span aria-hidden="true">↘</span><div><h3>Bir turda, bir karar.</h3><p>Önce niyeti netleştir. Sonra farkı dinle. İyi olanı koruyarak devam et.</p></div></article><article><span aria-hidden="true">≈</span><div><h3>Referansın rolü belli olsun.</h3><p>Bir sesin kimliğini mi, ritim hissini mi, aranjmanını mı seviyorsun? Ne aradığını ayır; gerisini taşımak zorunda değilsin.</p></div></article><article><span aria-hidden="true">○</span><div><h3>Ölçüm ayrı, kulak ayrı.</h3><p>Bir dosyanın sağlam olması, bir performansı beğendiğin anlamına gelmez. Müzikal karar sende.</p></div></article></div></section>
+<section class="development section" aria-labelledby="development-title"><div class="development-heading"><p class="eyebrow">BUGÜN NEREDEYİZ?</p><h2 id="development-title">Dikkatle geliştiriliyor.</h2></div><dl class="product-state"><div><dt>Yerel stüdyo</dt><dd>Prototip · brief, ses adayları ve karar takibi</dd></div><div><dt>Ableton Live / REAPER</dt><dd>Sınırlı, deneysel iş akışları</dd></div><div><dt>Cihazlar arası süreklilik</dt><dd>Planlanan çalışma · otomatik eşitleme sunulmuyor</dd></div></dl><p class="boundary">Bu sayfa ürünün yaklaşımını gösterir. Otomatik müzik üretimi başlatmaz, mikrofonunu açmaz veya projen üzerinde işlem yapmaz.</p><details class="architecture"><summary>Teknik yapıyı merak edenlere <span aria-hidden="true">+</span></summary><div><p>Üretici ve dil modeli niyeti yorumlar, seçenekleri ve planı oluşturur. Anlamlı üretim istekleri Production MCP üzerinden deterministik çekirdeğe gider; varlıklar, proje durumu, referanslar ve doğrulama burada yönetilir. DAW bağdaştırıcıları sınırlı işleri uygular.</p><p>Bu katmanlar, keyfi DAW işlemlerini modelin doğrudan yürütmesine izin vermez. Teknik readback, insan dinlemesi veya nihai müzikal onay yerine geçmez.</p></div></details></section>
+<section id="iletisim" class="contact section" aria-labelledby="contact-title"><div><p class="eyebrow">BİR ŞARKI, BİR SORU</p><h2 id="contact-title">Sen nerede<br><em>takılıyorsun?</em></h2></div><div class="contact-copy"><p>Üretirken tekrar tekrar döndüğün bir sorun var mı? Ne yapmak istediğini ve neyin değişmemesini istediğini anlat.</p><a class="email" href="mailto:esat@novtrak.com">esat@novtrak.com ↗</a><small>Geliştirme aşamasındayız. Bir erişim tarihi veya teslim sözü vermiyoruz.</small></div></section>
+</main><footer><a class="footer-brand" href="#icerik">novtrak</a><span>© 2026 · Yerel öncelikli. Müzisyen odaklı.</span><a href="#atolye">Bir sonraki adımı dene ↗</a></footer></div><script type="module" src="site.js"></script>
+</body></html>
