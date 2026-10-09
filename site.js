@@ -43,7 +43,11 @@ $('#revision-form').addEventListener('submit', event => {
     status('Seçimin ve tek değişiklik taslakta birleşti. Yeni ses veya DAW işlemi başlatılmadı.');
     $('#result-title').focus({preventScroll:true});
     $('#brief-result').scrollIntoView({block:'nearest'});
-  } catch { status('Önce bir yön seç, niyetini ve tek değişikliği yaz.'); }
+  } catch {
+    status('Önce bir yön seç, niyetini ve tek değişikliği yaz.');
+    const incomplete = !current().intent.trim() ? $('#intent') : !current().change.trim() ? $('#change') : null;
+    if (incomplete) setTimeout(() => incomplete.focus(), 0);
+  }
 });
 $('#copy-brief').addEventListener('click', async () => {
   if (!current().brief) return;
