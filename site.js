@@ -62,7 +62,7 @@ $('#download-brief').addEventListener('click', () => {
   setTimeout(() => URL.revokeObjectURL(url), 0);
   status('Brief metin dosyası olarak indirildi. Hiçbir veri gönderilmedi.');
 });
-$('#reset').addEventListener('click', () => { stopAudio(); state = initialState(); render({fields:true}); status('Örnek başa alındı. Gerçek projen üzerinde bir işlem yapılmadı.'); });
+$('#reset').addEventListener('click', () => { stopAudio(); state = initialState(); render({fields:true}); $('[data-scenario="idea"]').focus(); status('Örnek başa alındı.'); });
 
 // Exactly one owned audio run. Tokens protect pending resume from stale callbacks.
 let runCounter = 0, activeRun = null;
