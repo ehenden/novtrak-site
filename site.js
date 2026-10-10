@@ -24,26 +24,26 @@ function render({fields = false} = {}) {
 }
 document.querySelectorAll('[data-scenario]').forEach(button => button.addEventListener('click', () => {
   state = update(state, {type: 'scenario', id: button.dataset.scenario});
-  render({fields: true}); status('Bu başlangıca ait niyet ve seçim gösteriliyor. Yeni ses üretilmedi.');
+  render({fields: true}); status('Başlangıç değişti · yeni ses üretilmedi.');
 }));
 document.querySelectorAll('[data-choose]').forEach(button => button.addEventListener('click', () => {
   state = update(state, {type: 'select', id: button.dataset.choose}); render();
-  status('Örnek yön seçildi. Şimdi yalnızca değiştirmek istediğin şeyi tarif et.');
+  status('Yön seçildi · tek değişikliği yaz.');
 }));
 for (const id of ['intent','change']) $('#' + id).addEventListener('input', () => {
   const previousBrief = current().brief;
   state = update(state, {type: id, value: $('#' + id).value}); render();
-  if (previousBrief) status('Metin değişti; eski brief gizlendi. Güncel taslağı yeniden hazırla.');
+  if (previousBrief) status('Metin değişti · briefi yenile.');
 });
 $('#revision-form').addEventListener('submit', event => {
   event.preventDefault();
   try {
     state = update(state, {type:'revision'}); render();
-    status('Seçimin ve tek değişiklik taslakta birleşti. Yeni ses veya DAW işlemi başlatılmadı.');
+    status('Taslak hazır · yeni ses veya DAW işlemi yok.');
     $('#result-title').focus({preventScroll:true});
     $('#brief-result').scrollIntoView({block:'nearest'});
   } catch {
-    status('Önce bir yön seç, niyetini ve tek değişikliği yaz.');
+    status('Yön, niyet ve tek değişikliği tamamla.');
     const incomplete = !current().intent.trim() ? $('#intent') : !current().change.trim() ? $('#change') : null;
     if (incomplete) setTimeout(() => incomplete.focus(), 0);
   }
@@ -115,7 +115,7 @@ async function play(kind) {
         voice.gain.value = i === 0 ? .55 : .15;
         osc.connect(voice); voice.connect(gain); osc.start(start); run.sources.push(osc);
       });
-      $('#sound-status').textContent = 'Tarayıcı tonu çalıyor. Sayfadan ayrıldığında durur.';
+      $('#sound-status').textContent = 'Tarayıcı tonu çalıyor · sayfadan ayrılınca durur.';
     } else {
       const config = sample[kind];
       gain.gain.setValueAtTime(.08, start);
@@ -129,9 +129,9 @@ async function play(kind) {
         osc.connect(envelope); envelope.connect(gain); osc.start(time); osc.stop(time + .44); run.sources.push(osc);
       });
       run.timer = setTimeout(() => {
-        if (activeRun === run && token === runCounter) { stopAudio(); status(`${kind.toUpperCase()} örneği bitti. Diğer yönle karşılaştırabilirsin.`); }
+        if (activeRun === run && token === runCounter) { stopAudio(); status(`${kind.toUpperCase()} bitti · diğer yönle karşılaştır.`); }
       }, (sample.duration + .05) * 1000);
-      status(`${kind.toUpperCase()} tarayıcı motifi çalıyor. Bu ses bir ürün çıktısı değildir.`);
+      status(`${kind.toUpperCase()} tarayıcı motifi çalıyor · ürün çıktısı değil.`);
     }
     audioButtons(kind);
   } catch {
