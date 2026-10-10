@@ -8,7 +8,6 @@ const status = text => { $('#demo-status').textContent = text; };
 function render({fields = false} = {}) {
   const work = current();
   document.querySelectorAll('[data-scenario]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.scenario === state.scenario)));
-  $('#scenario-description').textContent = scenarios[state.scenario].description;
   if (fields) { $('#intent').value = work.intent; $('#change').value = work.change; }
   for (const id of ['a','b']) {
     const selected = work.selected === id;
