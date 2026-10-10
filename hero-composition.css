@@ -14,4 +14,6 @@
   .desk {
     grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.5fr);
   }
+
+  .candidate-grid { gap: 18px; }
 }
