@@ -1,0 +1,13 @@
+/* Keep the decision path dominant and make the existing signal study a deliberate desktop anchor. */
+@media (min-width: 801px) {
+  .hero {
+    grid-template-columns: minmax(0, 7fr) minmax(300px, 5fr);
+    gap: clamp(2.5rem, 6vw, 7rem);
+    align-items: end;
+  }
+
+  .signal-panel {
+    align-self: end;
+    padding-top: 24px;
+  }
+}
